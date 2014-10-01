@@ -1,4 +1,7 @@
-- set_css 'site/home'
+- set_css 'game'
+- set_javascript 'game'
 
-- @people.each do |person|
-  = person.name
+= image_tag @person.image
+= form_tag game_check_path do
+  = hidden_field_tag 'name', @person.name
+  = text_field_tag 'guess'

@@ -1,5 +1,8 @@
 Product::Application.routes.draw do
   get 'home'=> 'users#home', as: 'home'
+  get 'game/autocomplete' => 'game#autocomplete', as: 'game_autocomplete'
+  post 'game/check' => 'game#check', as: 'game_check'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

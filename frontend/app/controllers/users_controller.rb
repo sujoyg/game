@@ -4,6 +4,6 @@ class UsersController < ApplicationController
   before_filter { |c| c.send :authorize, root_path }
 
   def home
-    @people = People.all
+    @person = People.all.sample
   end
 end
