@@ -1,0 +1,11 @@
+!!!DOCTYPE html
+%html
+  %head
+    %title= content_for?(:title) ? "#{yield(:title)} • #{$globals.app.titlecase}" : $globals.app.titlecase
+    = stylesheet_link_tag 'application', :media => 'all'
+    = page_css
+    = javascript_include_tag 'application' # Includes jQuery. Must precede all other jQuery imports.
+    = page_javascript
+    = csrf_meta_tags
+  %body{name: "#{controller.controller_name}/#{controller.action_name}"}
+    = content_for?(:content) ? yield(:content) : yield

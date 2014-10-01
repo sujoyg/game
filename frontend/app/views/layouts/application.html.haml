@@ -1,0 +1,9 @@
+- content_for :content do
+  = render partial: 'layouts/header'
+  - flash.each do |name, message|
+    %div{class: "alert-#{name}"}
+      = message
+
+  #content
+    = yield
+= render template: 'layouts/base'
