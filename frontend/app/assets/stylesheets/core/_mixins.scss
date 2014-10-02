@@ -19,3 +19,21 @@
     }
 
 }
+
+// See Compass 0.12.2 http://compass-style.org/reference/compass/css3/inline_block/
+// @mixin _inline-block
+// @param $alignment {String} optional vertical-align value. Default: null
+@mixin _inline-block($alignment:middle) {
+    @if $adb-support-mozilla {
+        display: -moz-inline-stack;
+    }
+    display: inline-block;
+    @if $alignment and $alignment != none {
+        vertical-align: $alignment;
+    }
+    @if $adb-support-ie7 {
+        zoom: 1;
+        *vertical-align: auto;
+        *display: inline;
+    }
+}

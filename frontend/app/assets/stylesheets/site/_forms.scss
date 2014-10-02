@@ -1,9 +1,4 @@
-
-
 form {
-    background-color: $system-white;
-    border-radius: 1em;
-    color: $system-black;
 }
 
 fieldset {
@@ -17,15 +12,15 @@ button {
 
 button {
     @include _transition;
-    background-color: $system-blue;
     padding: 0.5em 1em;
-    border: 0.2em solid $system-blue;
-    color: $system-white;
+    border: 0.25em solid $system-buttons;
+    color: $gold;
     text-transform: uppercase;
     font-size: 1.5em;
-    border-radius: 3em;
+    box-shadow: 0 0 0 0.25em $maroon;
+    background: transparent;
     &:hover {
-        opacity: 0.6;
+        background-color: $pink;
     }
 }
 

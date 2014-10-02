@@ -18,7 +18,10 @@
         = csrf_meta_tags
 
     %body{name: "#{controller.controller_name}/#{controller.action_name}"}
-
+        .background_1
+        .background_2
+        .background_3
+        .background_4
         #container
             = content_for?(:content) ? yield(:content) : yield
 

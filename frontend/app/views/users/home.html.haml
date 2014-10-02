@@ -8,6 +8,9 @@
         = form_tag game_check_path do
             = hidden_field_tag 'person_id', @person.id
             = search_field_tag 'guess'
+    %menu
+        = button_tag 'Skip', :type => "button"
+        = button_tag 'Enter', :type => "submit"
 .result
     .hit
         You Guessed right!
@@ -28,6 +31,3 @@
     %span
         Remaining:
         %span.remaining #{@remaining}
-%menu
-    = button_tag 'Next', class: 'next'
-    = button_tag 'Finish', class: 'finish'

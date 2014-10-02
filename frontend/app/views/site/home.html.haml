@@ -1,4 +1,5 @@
 -# - set_css 'site/home'
 
 = form_tag open_id_connect_path, method: 'GET' do
-  = submit_tag 'Login using AppDirect'
+    %menu
+        %button{ :type => "submit" } Log in with AppDirect

@@ -1,3 +1,9 @@
+@include adb-icons($adb-icon-family, $adb-icon-path, $adb-icon-version, $adb-icon-names-map, '', $adb-icon-ratio, true);
+
+// This shows how to include concrete icon classes in your stylesheet.
+// Themes would only come with silent icons, which only impact styles when they're used.
+@include adb-icons-concrete($adb-icon-names-map, '');
+
 *,
 *:before,
 *:after {
@@ -11,7 +17,7 @@ menu {
 
 body,
 html {
-    background-color: $background;
+    background-color: $gold;
     text-align: center;
     font: normal 100%/1.6em $body-type-family;
     color: $system-white;
@@ -39,9 +45,11 @@ h1 {
     font-weight: 100;
     line-height: 100%;
     font-size: 3em;
+    font-style: italic;
     span {
         font-weight: 600;
         line-height: 80%;
+        font-style: normal;
     }
 }
 

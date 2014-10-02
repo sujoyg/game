@@ -72,9 +72,9 @@ button {
 
 button {
     @include _transition;
-    background-color: $system-blue;
+    background-color: $system-buttons;
     padding: 0.5em 1em;
-    border: 0.2em solid $system-blue;
+    border: 0.2em solid $system-buttons;
     color: $system-white;
     text-transform: uppercase;
     font-size: 1.5em;

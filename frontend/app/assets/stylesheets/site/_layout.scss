@@ -1,8 +1,55 @@
 #container {
     max-width: 480px;
+    background-color: rgba($background, 0.8);
     margin: 4em auto;
-    padding: 0 1em;
+    padding: 2em 1em;
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    margin-bottom: 2em;
 }
 
 #main {
+}
+
+.content {
+    background-color: $system-white;
+    border-radius: 1em;
+    color: $system-black;
+}
+
+%background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+    transform: skewX(-45deg) scale(1.5);
+}
+
+.background_1 {
+    @extend %background;
+    background-color: $orange;
+    margin: 0 5%;
+}
+
+.background_2 {
+    @extend %background;
+    background-color: $pink;
+    margin: 0 10%;
+}
+
+.background_3 {
+    @extend %background;
+    background-color: $maroon;
+    margin: 0 15%;
+}
+
+.background_4 {
+    @extend %background;
+    background-color: $background;
+    margin: 0 20%;
 }
