@@ -1,13 +1,26 @@
 - set_css 'game'
 - set_javascript 'game'
 
-%h1 Your Score: #{@score}
-
 .game
+  %h1
+    Your Score:
+    %span.score #{@score}
+
   .play
     = image_tag @person.image
     = form_tag game_check_path do
       = hidden_field_tag 'person_id', @person.id
       = text_field_tag 'guess'
-  .hit
-  .miss
+  .result
+    .hit
+      %h1 You Guessed right!
+    .miss
+      %h1 You Guessed wrong :-(
+      %div
+        Your guess:
+        %span.guess
+    .person
+      %div
+        Name:
+        %span.name
+    = button_tag 'Next', class: 'next'

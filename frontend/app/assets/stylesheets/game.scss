@@ -1,0 +1,14 @@
+.game {
+  width: 500px;
+  height: 500px;
+  border: {
+    style: solid;
+    color: black;
+  }
+
+  margin: 0 auto;
+}
+
+.game .result {
+  display: none;
+}
