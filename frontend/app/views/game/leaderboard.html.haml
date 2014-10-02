@@ -1,0 +1,8 @@
+- set_css 'game/leaderboard'
+
+%h1 Leaderboard
+
+- @leaderboard.each do |record|
+  .record
+    .name= record.user.name
+    .score= record.score

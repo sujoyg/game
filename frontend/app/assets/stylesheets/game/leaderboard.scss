@@ -1,0 +1,17 @@
+.record {
+  display: table-row;
+  overflow: hidden;
+  clear: both;
+}
+
+.name {
+  font-size: x-large;
+  display: table-cell;
+  padding: 10px;
+}
+
+.score {
+  font-size: x-large;
+  display: table-cell;
+  padding: 10px;
+}

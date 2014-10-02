@@ -1,7 +1,7 @@
 shared: &shared
   api:
     scheme: http
-    host: 10.25.100.88:8080
+    host: 23.23.98.118:8090
   app: <%= $app %>
   game:
     rounds: 5

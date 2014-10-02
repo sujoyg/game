@@ -6,6 +6,12 @@ class Play
   end
 
   def self.leaderboard
-    JSON.parse API.get '/bestGames', {n: 50}
+    records = JSON.parse API.get "/bestGames?n=50"
+    records.
+        select { |record| User.exists?(email: record['email']) }.
+        map do |record|
+      OpenStruct.new(user: User.where(email: record['email']).first,
+                     score: record['score'])
+    end
   end
 end

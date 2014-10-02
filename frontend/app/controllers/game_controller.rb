@@ -4,7 +4,9 @@ require 'lib/play'
 class GameController < ApplicationController
   include GameHelper
 
-  before_filter { |c| c.send :authorize, root_path }
+  before_filter do |c|
+    params[:action] == 'leaderboard' ? true : c.send(:authorize, root_path)
+  end
 
   def autocomplete
     people = People.all
@@ -17,8 +19,7 @@ class GameController < ApplicationController
     person = People.find params[:person_id]
     hit = person.name.downcase == params[:guess].downcase
     set_result hit
-    over = get_rounds >= $globals.game.rounds
-    if over
+    if get_rounds >= $globals.game.rounds
       Play.finish(current_user, get_score)
     end
 
@@ -27,7 +28,11 @@ class GameController < ApplicationController
         hit: hit,
         name: person.name,
         guess: params[:guess],
-        over: over
+        remaining: $globals.game.rounds - get_rounds
     }
+  end
+
+  def leaderboard
+    @leaderboard = Play.leaderboard
   end
 end

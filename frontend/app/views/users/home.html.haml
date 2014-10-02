@@ -1,11 +1,14 @@
-- set_css 'game'
-- set_javascript 'game'
+- set_css 'game/play'
+- set_javascript 'game/play'
 
-.game
+.game{finish: game_leaderboard_path}
   %h1
     Your Score:
     %span.score< #{@score}
     %span.rounds>< /#{@rounds}
+  %h1
+    Remaining:
+    %span.remaining #{@remaining}
 
   .play
     = image_tag @person.image

@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @person = People.all.sample
     @score = get_score
     @rounds = $globals.game.rounds
+    @remaining = $globals.game.rounds - get_rounds
   end
 
   def on_login

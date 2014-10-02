@@ -16,7 +16,7 @@ $(function () {
 
   $(".game button.finish").click(function (e) {
     e.preventDefault();
-    alert("going over to leaderboard.");
+    location.href = $(".game").attr("finish");
   });
 
   $(".game .play form").submit(function (e) {
@@ -28,13 +28,15 @@ $(function () {
       $(".game .result .name").text(result["name"]);
       $(".game .result .guess").text(result["guess"]);
 
-      if (result["over"]) {
+      $(".game .score").text(result["score"]);
+      $(".game .remaining").text(result["remaining"]);
+
+      if (result["remaining"] == 0) {
         $(".game .next").hide();
         $(".game .finish").show();
       }
 
       if (result["hit"]) {
-        $(".game .score").text(result["score"]);
         $(".game .miss").hide();
         $(".game .hit").show();
       } else {
