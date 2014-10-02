@@ -14,6 +14,11 @@ $(function () {
     location.reload(true);
   });
 
+  $(".game button.finish").click(function (e) {
+    e.preventDefault();
+    alert("going over to leaderboard.");
+  });
+
   $(".game .play form").submit(function (e) {
     e.preventDefault();
 
@@ -22,6 +27,11 @@ $(function () {
     $.post($form.attr("action"), data).done(function (result) {
       $(".game .result .name").text(result["name"]);
       $(".game .result .guess").text(result["guess"]);
+
+      if (result["over"]) {
+        $(".game .next").hide();
+        $(".game .finish").show();
+      }
 
       if (result["hit"]) {
         $(".game .score").text(result["score"]);

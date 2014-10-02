@@ -16,8 +16,14 @@ class GameController < ApplicationController
     person = People.find params[:person_id]
     hit = person.name.downcase == params[:guess].downcase
 
-    increase_score if hit
+    set_result hit
 
-    render json: {score: get_score, hit: hit, name: person.name, guess: params[:guess]}
+    render json: {
+        score: get_score,
+        hit: hit,
+        name: person.name,
+        guess: params[:guess],
+        over: get_rounds >= $globals.game.rounds
+    }
   end
 end

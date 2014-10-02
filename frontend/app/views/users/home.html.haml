@@ -4,7 +4,8 @@
 .game
   %h1
     Your Score:
-    %span.score #{@score}
+    %span.score< #{@score}
+    %span.rounds>< /#{@rounds}
 
   .play
     = image_tag @person.image
@@ -24,3 +25,4 @@
         Name:
         %span.name
     = button_tag 'Next', class: 'next'
+    = button_tag 'Finish', class: 'finish'

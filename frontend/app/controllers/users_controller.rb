@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def home
     @person = People.all.sample
     @score = get_score
+    @rounds = $globals.game.rounds
   end
 
   def on_login

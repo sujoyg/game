@@ -3,6 +3,8 @@ shared: &shared
     scheme: http
     host: 10.25.100.88:8080
   app: Game
+  game:
+    rounds: 5
   token: 2def5bdfe89f8dda89d37fb95932483450cf995b20252fc60cbe82cf1e0688504a79c25bfcc52c123c9d37cc3b806753854b9b473e4f3ba8db415bbe40390fe6
   user: sujoy_gupta
 
