@@ -1,5 +1,5 @@
 $(function () {
-  $("input[name='guess']").autocomplete({
+  $(".game input[name='guess']").autocomplete({
     source: "/game/autocomplete",
     minLength: 2,
 
