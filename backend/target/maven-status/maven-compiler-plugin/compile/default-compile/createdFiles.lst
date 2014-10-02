@@ -1,0 +1,7 @@
+usermatch/Application.class
+usermatch/service/UserRepository.class
+usermatch/controller/GameController.class
+usermatch/service/GameRepository.class
+usermatch/service/GameService.class
+usermatch/model/Game.class
+usermatch/model/User.class
