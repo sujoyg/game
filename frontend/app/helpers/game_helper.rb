@@ -8,13 +8,8 @@ module GameHelper
     session.delete :hit
   end
 
-  def record_a_hit
-    session[:hit] = true
+  def increase_score
     session[:score] ||= 0
     session[:score] = session[:score] + 1
-  end
-
-  def record_a_miss
-    session[:hit] = false
   end
 end

@@ -4,7 +4,10 @@
 %h1 Your Score: #{@score}
 
 .game
-  = image_tag @person.image
-  = form_tag game_check_path do
-    = hidden_field_tag 'name', @person.name
-    = text_field_tag 'guess'
+  .play
+    = image_tag @person.image
+    = form_tag game_check_path do
+      = hidden_field_tag 'person_id', @person.id
+      = text_field_tag 'guess'
+  .hit
+  .miss

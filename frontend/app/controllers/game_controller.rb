@@ -13,12 +13,11 @@ class GameController < ApplicationController
   end
 
   def check
-    if params[:name].downcase == params[:guess].downcase
-      record_a_hit
-    else
-      record_a_miss
-    end
+    person = People.find params[:person_id]
+    hit = person.name.downcase == params[:guess].downcase
 
-    redirect_to home_path
+    increase_score if hit
+
+    render json: {score: get_score, hit: hit, name: person.name, guess: params[:guess]}
   end
 end
