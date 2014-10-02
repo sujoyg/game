@@ -1,14 +1,14 @@
 function module(path, def) {
-  var parent = window;
+    var parent = window;
 
-  path.split(".").every(function (token) {
-    if (!parent[token]) {
-      parent[token] = {};
-    }
-    parent = parent[token];
+    path.split(".").every(function (token) {
+        if (!parent[token]) {
+            parent[token] = {};
+        }
+        parent = parent[token];
 
-    return true;
-  });
+        return true;
+    });
 
-  $.extend(parent, def);
+    $.extend(parent, def);
 }

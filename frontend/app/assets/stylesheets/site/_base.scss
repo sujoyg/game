@@ -1,0 +1,59 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+ul,
+menu {
+    @include _reset-box;
+}
+
+body,
+html {
+    background-color: $background;
+    text-align: center;
+    font: normal 100%/1.6em $body-type-family;
+    color: $system-white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: $title-type-family;
+    font-weight: 400;
+    color: $system-white;
+    &:first-child {
+        margin-top: 0;
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+h1 {
+    text-transform: uppercase;
+    color: $color-title-large;
+    font-weight: 100;
+    line-height: 100%;
+    font-size: 3em;
+    span {
+        font-weight: 600;
+        line-height: 80%;
+    }
+}
+
+a {
+    @include _transition;
+    text-decoration: none;
+    &:hover {
+        opacity: 0.6;
+    }
+    &,
+    &:link,
+    &:visited {
+        color: inherit;
+    }
+}

@@ -27,7 +27,7 @@ h4,
 h5 {
     font-family: $title-type-family;
     font-weight: 400;
-    color: $white;
+    color: $system-white;
     a,
     a:link,
     a:visited {
@@ -75,7 +75,7 @@ button {
     background-color: $system-blue;
     padding: 0.5em 1em;
     border: 0.2em solid $system-blue;
-    color: $white;
+    color: $system-white;
     text-transform: uppercase;
     font-size: 1.5em;
     border-radius: 3em;
@@ -124,7 +124,7 @@ menu {
 }
 
 .card {
-    background-color: $white;
+    background-color: $system-white;
     border-radius: 1em;
 }
 

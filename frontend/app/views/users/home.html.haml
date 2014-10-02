@@ -1,31 +1,33 @@
 - set_css 'game/play'
 - set_javascript 'game/play'
 
-.game{finish: game_leaderboard_path}
-  %h1
-    Your Score:
-    %span.score< #{@score}
-    %span.rounds>< /#{@rounds}
-  %h1
-    Remaining:
-    %span.remaining #{@remaining}
-
-  .play
-    = image_tag @person.image
-    = form_tag game_check_path do
-      = hidden_field_tag 'person_id', @person.id
-      = text_field_tag 'guess'
-  .result
+%form.card{ finish: game_leaderboard_path }
+    .card--image
+        = image_tag @person.image
+    %fieldset.card--content
+        = form_tag game_check_path do
+            = hidden_field_tag 'person_id', @person.id
+            = search_field_tag 'guess'
+.result
     .hit
-      %h1 You Guessed right!
+        You Guessed right!
     .miss
-      %h1 You Guessed wrong :-(
-      %div
+        You Guessed wrong :-(
+    %div
         Your guess:
         %span.guess
-    .person
-      %div
+            .person
+    %div
         Name:
         %span.name
+.score
+    %span
+        Your Score:
+        %span.score< #{@score}
+        %span.rounds>< /#{@rounds}
+    %span
+        Remaining:
+        %span.remaining #{@remaining}
+%menu
     = button_tag 'Next', class: 'next'
     = button_tag 'Finish', class: 'finish'

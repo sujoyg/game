@@ -1,0 +1,74 @@
+
+
+form {
+    background-color: $system-white;
+    border-radius: 1em;
+    color: $system-black;
+}
+
+fieldset {
+    padding: 2em;
+}
+
+input,
+button {
+    font-family: $body-type-family;
+}
+
+button {
+    @include _transition;
+    background-color: $system-blue;
+    padding: 0.5em 1em;
+    border: 0.2em solid $system-blue;
+    color: $system-white;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    border-radius: 3em;
+    &:hover {
+        opacity: 0.6;
+    }
+}
+
+.button__skip {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+input[type="text"] {
+    padding: 0.5em 1em;
+    border: 0.2em solid $system-gray-light;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 0.5em;
+    &:focus {
+        outline: none;
+        border-color: $system-gray-medium;
+    }
+}
+
+input[type="search"] {
+    @extend input[type="text"];
+    border-radius: 3em;
+}
+
+input[type="password"] {
+    @extend input[type="text"];
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-bottom: 0.2em;
+}
+
+.submit {
+    margin-top: 2em;
+}
+
+.field {
+    margin-top: 1em;
+    &:first-child {
+        margin-top: 0;
+    }
+}

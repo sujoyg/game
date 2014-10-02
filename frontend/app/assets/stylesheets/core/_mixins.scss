@@ -1,0 +1,21 @@
+@mixin _transition ($properties:all, $timing:200ms, $function:ease) {
+    -webkit-transition: $properties $timing $function;
+    -moz-transition: $properties $timing $function;
+    -ms-transition: $properties $timing $function;
+    -o-transition: $properties $timing $function;
+    transition: $properties $timing $function;
+}
+
+@mixin _reset-box ($attributes:box) {
+
+    @if $attributes == box {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    } @else {
+        @each $attributes in $attributes {
+            #{$attributes}: 0;
+        }
+    }
+
+}
