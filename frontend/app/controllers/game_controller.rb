@@ -1,4 +1,5 @@
 require 'lib/people'
+require 'lib/play'
 
 class GameController < ApplicationController
   include GameHelper
@@ -15,15 +16,18 @@ class GameController < ApplicationController
   def check
     person = People.find params[:person_id]
     hit = person.name.downcase == params[:guess].downcase
-
     set_result hit
+    over = get_rounds >= $globals.game.rounds
+    if over
+      Play.finish(current_user, get_score)
+    end
 
     render json: {
         score: get_score,
         hit: hit,
         name: person.name,
         guess: params[:guess],
-        over: get_rounds >= $globals.game.rounds
+        over: over
     }
   end
 end
