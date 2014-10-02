@@ -4,6 +4,7 @@ require File.expand_path('../boot', __FILE__)
 require 'active_record/railtie'
 require 'action_controller/railtie'
 require 'action_mailer/railtie'
+require 'rack/openid'
 require 'sprockets/railtie'
 
 require 'globals'
@@ -40,6 +41,8 @@ end
 module Product
   class Application < Rails::Application
     config.railties_order = [UserAuthentication::Engine, :main_app, :all]
+    config.middleware.use 'Rack::OpenID'
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

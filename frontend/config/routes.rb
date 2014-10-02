@@ -3,6 +3,8 @@ Product::Application.routes.draw do
   get 'game/autocomplete' => 'game#autocomplete', as: 'game_autocomplete'
   post 'game/check' => 'game#check', as: 'game_check'
   get 'game/leaderboard' => 'game#leaderboard', as: 'game_leaderboard'
+  get 'open_id/accept' => 'open_id#accept', as: 'open_id_accept'
+  get 'open_id/connect' => 'open_id#connect', as: 'open_id_connect'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
