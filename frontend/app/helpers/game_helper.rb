@@ -12,11 +12,7 @@ module GameHelper
     session[:name] = person.name
     session[:email] = person.email
     session[:image] = person.image
-    session[:waiting] = true
-  end
-
-  def get_last_round
-    [session[:hit], session[:name], session[:guess], session[:email]]
+    session[:state] = 'waiting'
   end
 
   def reset_game
@@ -28,21 +24,17 @@ module GameHelper
     session.delete :email
     session.delete :hit
     session.delete :image
-    session.delete :waiting
     session.delete :person_id
+    session.delete :state
   end
 
-  def set_result(person, guess)
-    hit = person.name.downcase == guess
+  def set_result(name, guess)
+    hit = name == guess
     increase_score if hit
     increase_round
 
-    session[:person_id] = person.id
-    session[:name] = person.name
     session[:guess] = guess
-    session[:email] = person.email
     session[:hit] = hit
-    session[:waiting] = false
   end
 
   def increase_score

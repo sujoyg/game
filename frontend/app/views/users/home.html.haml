@@ -1,7 +1,7 @@
 - set_css 'game/play'
 - set_javascript 'game/play'
 
-= form_tag game_check_path, :class => "game flip", :data => { "finish" => game_leaderboard_path } do
+= form_tag game_check_path, :class => "game flip", :data => {"next" => game_next_path, "finish" => game_leaderboard_path, "state" => game_state_path} do
     .flipper{class: @remaining == 0 ? "flipped" : ""}
         .face.front
             .card.card__initial.clearfix
@@ -9,7 +9,6 @@
                     = image_tag @person.image
                 %fieldset.card--content
                     .field
-                        = hidden_field_tag 'person_id', @person.id
                         = search_field_tag 'guess', '', :placeholder => "e.g., Johnny Apple"
                 %menu.form--submit
                     = button_tag 'Enter', :type => "submit", :id => "button_enter"

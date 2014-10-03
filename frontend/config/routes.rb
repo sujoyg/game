@@ -1,8 +1,12 @@
 Product::Application.routes.draw do
   get 'home'=> 'users#home', as: 'home'
+
   get 'game/autocomplete' => 'game#autocomplete', as: 'game_autocomplete'
   post 'game/check' => 'game#check', as: 'game_check'
   get 'game/leaderboard' => 'game#leaderboard', as: 'game_leaderboard'
+  get 'game/next' => 'game#next', as: 'game_next'
+  get 'game/state' => 'game#state', as: 'game_state'
+
   get 'open_id/accept' => 'open_id#accept', as: 'open_id_accept'
   get 'open_id/connect' => 'open_id#connect', as: 'open_id_connect'
 
