@@ -145,12 +145,11 @@
 // Flip Animation
 
 .flip {
-    -webkit-perspective: 800;
-    perspective: 800;
+    @include _perspective(800);
     position: relative;
 }
 .flip .flipper.flipped {
-    transform: rotatey(-180deg);
+    @include _transform(rotatey(-180deg));
 }
 .flip .flipper {
     transform-style: preserve-3d;
@@ -170,5 +169,5 @@
     z-index: 1;
 }
 .flip .flipper .back {
-    transform: rotatey(-180deg);
+    @include _transform(rotatey(-180deg));
 }

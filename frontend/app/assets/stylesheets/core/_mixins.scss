@@ -61,3 +61,28 @@
         -khtml-animation: $name $duration $function $delay $iteration $direction;
     }
 }
+
+@mixin _transform ($properties) {
+    @if $adb-support-webkit {
+        -webkit-transform: $properties;
+    }
+
+    @if $adb-support-mozilla {
+        -moz-transform: $properties;
+    }
+
+    @if $adb-support-ie {
+        -ms-transform: $properties;
+    }
+
+    @if $adb-support-opera {
+        -o-transform: $properties;
+    }
+
+    transform: $properties;
+}
+
+@mixin _perspective ($perspective) {
+    -webkit-perspective: $perspective;
+    perspective: $perspective;
+}
