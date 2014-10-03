@@ -17,17 +17,20 @@ class GameController < ApplicationController
 
   def check
     person = People.find params[:person_id]
-    hit = person.name.downcase == params[:guess].downcase
-    set_result hit
+    set_result person, params[:guess]
+
     if get_rounds >= $globals.game.rounds
       Play.finish(current_user, get_score)
     end
 
+    hit, name, guess, email = get_last_round
+
     render json: {
         score: get_score,
         hit: hit,
-        name: person.name,
-        guess: params[:guess],
+        name: name,
+        email: email,
+        guess: guess,
         remaining: $globals.game.rounds - get_rounds
     }
   end

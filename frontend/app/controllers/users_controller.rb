@@ -5,7 +5,13 @@ class UsersController < ApplicationController
   before_filter { |c| c.send :authorize, root_path }
 
   def home
-    @person = People.all.sample
+    if session[:waiting]
+      @person = People.find(session[:person_id])
+    else
+      @person = People.all.sample
+      set_current_round(@person)
+    end
+
     @score = get_score
     @rounds = $globals.game.rounds
     @remaining = $globals.game.rounds - get_rounds

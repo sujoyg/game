@@ -1,4 +1,6 @@
 class OpenIdController < ApplicationController
+  include GameHelper
+
   skip_before_filter :authorize
 
   def connect
@@ -24,6 +26,8 @@ class OpenIdController < ApplicationController
         end
         user.save!
         session[:user_id] = user.id
+
+        reset_game
         redirect_to(session[:redirect_to] || home_path)
       when :failure
         flash[:error] = 'OpenId login failed.'

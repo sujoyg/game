@@ -1,8 +1,8 @@
 - set_css 'game/play'
 - set_javascript 'game/play'
 
-= form_tag game_check_path, :class => "game flip", :data => { "finish" => "game_leaderboard_path" } do
-    .flipper
+= form_tag game_check_path, :class => "game flip", :data => { "finish" => game_leaderboard_path } do
+    .flipper{class: @remaining == 0 ? "flipped" : ""}
         .face.front
             .card.card__initial.clearfix
                 .card--image
@@ -24,7 +24,7 @@
                         %span.guess
                         %i.icon__frown
                         Wrong
-                    %h2
+                    %h2.name
                         Test name
                     %p
                         Title
@@ -35,10 +35,12 @@
                     %p
                         Say hey
                         %br
-                        %a{ :href => "mailto:email@address.com" }
+                        %a.email{ :href => "mailto:email@address.com" }
                             email@address.com
                 %menu.form--submit
                     = button_tag 'Next', :type => "submit", :id => "button_next"
+                %menu.finish
+                    = button_tag 'Finish', id: 'button_finish'
 .score
     .score--unit.score--unit__correct
         %span.score--number< #{@score}
@@ -47,5 +49,5 @@
         %span.score--number>< #{@rounds}
         %span.score--text total
     .score--unit.score--unit__rounds
-        %span.score--number #{@remaining}
+        %span.score--number< #{@remaining}
         %span.score--text more tries
