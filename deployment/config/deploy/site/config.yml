@@ -1,0 +1,24 @@
+shared: &shared
+  application: Name That Coworker 
+
+development:
+  <<: *shared
+  site:
+    address: http://localhost:3000
+
+test:
+  <<: *shared
+
+deployment: &deployment
+  repository: git@github.com:sujoyg/game-frontend.git
+  user: user
+
+production:
+  <<: *shared
+  deployment:
+    <<: *deployment
+    host: 23.23.98.118
+    dir: /var/www/www.namethatcoworker.com
+  site:
+    address: 23.23.98.118
+

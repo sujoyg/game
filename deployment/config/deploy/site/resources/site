@@ -1,0 +1,30 @@
+<VirtualHost *:80>
+    ServerName <%= config.site.address %>
+    <% if stage == 'hotfix' %>
+    ProxyPreserveHost On
+    ProxyPass / http://localhost:3000/
+    ProxyPassReverse / http://localhost:3000
+    <% else %>
+    DocumentRoot <%= config.deployment.dir %>/current/public
+    RailsBaseURI /
+    RailsEnv <%= stage %>
+
+    <Directory />
+        Options FollowSymLinks
+        AllowOverride None
+    </Directory>
+    <Directory <%= config.deployment.dir %>/current/public/>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Order allow,deny
+        allow from all
+    </Directory>
+    <% end %>
+</VirtualHost>
+
+<% if config.site.address.start_with? 'www' %>
+<VirtualHost *:80>
+  ServerName <%= config.web.address.gsub(/^www./, '') %>
+  Redirect permanent / http://<%= config.web.address %>/
+</VirtualHost>
+<% end %>

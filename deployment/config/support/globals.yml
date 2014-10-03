@@ -1,0 +1,16 @@
+shared: &shared
+  application: Name That Coworker
+
+development:
+  <<: *shared
+  site:
+    address: http://localhost:3000
+
+test:
+  <<: *shared
+
+production:
+  <<: *shared
+  site:
+    address: http://23.23.98.118
+
