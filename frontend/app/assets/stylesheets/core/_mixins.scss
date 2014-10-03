@@ -37,3 +37,27 @@
         *display: inline;
     }
 }
+
+@mixin _animation($name, $duration:200ms, $function:ease, $delay:0s, $iteration:1, $direction:both) {
+    @if $adb-support-webkit {
+        -webkit-animation: $name $duration $function $delay $iteration $direction;
+    }
+
+    @if $adb-support-mozilla {
+        -moz-animation: $name $duration $function $delay $iteration $direction;
+    }
+
+    @if $adb-support-ie {
+        -ms-animation: $name $duration $function $delay $iteration $direction;
+    }
+
+    @if $adb-support-opera {
+        -o-animation: $name $duration $function $delay $iteration $direction;
+    }
+
+    animation: $name $duration $function $delay $iteration $direction;
+
+    @if $adb-support-khtml {
+        -khtml-animation: $name $duration $function $delay $iteration $direction;
+    }
+}

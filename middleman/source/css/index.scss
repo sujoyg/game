@@ -72,9 +72,9 @@ button {
 
 button {
     @include _transition;
-    background-color: $system-buttons;
+    background-color: $pink;
     padding: 0.5em 1em;
-    border: 0.2em solid $system-buttons;
+    border: 0.2em solid $pink;
     color: $system-white;
     text-transform: uppercase;
     font-size: 1.5em;
@@ -117,10 +117,6 @@ input[type="search"] {
 }
 
 #main {
-}
-
-menu {
-    margin-top: 2em;
 }
 
 .card {

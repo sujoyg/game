@@ -11,8 +11,14 @@
 }
 
 ul,
+ol,
+li,
 menu {
     @include _reset-box;
+}
+
+li {
+    list-style: none;
 }
 
 body,
@@ -21,6 +27,7 @@ html {
     text-align: center;
     font: normal 100%/1.6em $body-type-family;
     color: $system-white;
+    font-weight: 100;
 }
 
 h1,
@@ -30,7 +37,7 @@ h4,
 h5 {
     font-family: $title-type-family;
     font-weight: 400;
-    color: $system-white;
+    color: $color-title;
     &:first-child {
         margin-top: 0;
     }
@@ -41,7 +48,6 @@ h5 {
 
 h1 {
     text-transform: uppercase;
-    color: $color-title-large;
     font-weight: 100;
     line-height: 100%;
     font-size: 3em;
@@ -53,15 +59,40 @@ h1 {
     }
 }
 
+h3 {
+    font-size: 2em;
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 1.5em;
+    text-transform: capitalize;
+    color: $pink;
+    font-weight: 600;
+}
+
 a {
     @include _transition;
     text-decoration: none;
-    &:hover {
-        opacity: 0.6;
-    }
     &,
     &:link,
     &:visited {
         color: inherit;
+    }
+    &:hover {
+        color: $orange;
+    }
+}
+
+strong,
+b {
+    font-weight: 600;
+}
+
+p {
+    text-align: left;
+    a {
+        color: $pink;
     }
 }

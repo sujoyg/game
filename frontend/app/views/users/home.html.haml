@@ -1,33 +1,51 @@
 - set_css 'game/play'
 - set_javascript 'game/play'
 
-%form.card{ finish: game_leaderboard_path }
-    .card--image
-        = image_tag @person.image
-    %fieldset.card--content
-        = form_tag game_check_path do
-            = hidden_field_tag 'person_id', @person.id
-            = search_field_tag 'guess'
-    %menu
-        = button_tag 'Skip', :type => "button"
-        = button_tag 'Enter', :type => "submit"
-.result
-    .hit
-        You Guessed right!
-    .miss
-        You Guessed wrong :-(
-    %div
-        Your guess:
-        %span.guess
-            .person
-    %div
-        Name:
-        %span.name
+= form_tag game_check_path, :class => "game flip", :data => { "finish" => "game_leaderboard_path" } do
+    .flipper
+        .face.front
+            .card.card__initial.clearfix
+                .card--image
+                    = image_tag @person.image
+                %fieldset.card--content
+                    .field
+                        = hidden_field_tag 'person_id', @person.id
+                        = search_field_tag 'guess', '', :placeholder => "e.g., Johnny Apple"
+                %menu.form--submit
+                    = button_tag 'Enter', :type => "submit", :id => "button_enter"
+                    = button_tag 'Skip', :type => "button", :id => "button_skip"
+        .face.back
+            .card.card__result
+                .card--content
+                    %span.status.status__correct
+                        %i.icon__smile_big
+                        Correct!
+                    %span.status.status__incorrect
+                        %span.guess
+                        %i.icon__frown
+                        Wrong
+                    %h2
+                        Test name
+                    %p
+                        Title
+                        %br
+                        Department
+                        %br
+                        Location
+                    %p
+                        Say hey
+                        %br
+                        %a{ :href => "mailto:email@address.com" }
+                            email@address.com
+                %menu.form--submit
+                    = button_tag 'Next', :type => "submit", :id => "button_next"
 .score
-    %span
-        Your Score:
-        %span.score< #{@score}
-        %span.rounds>< /#{@rounds}
-    %span
-        Remaining:
-        %span.remaining #{@remaining}
+    .score--unit.score--unit__correct
+        %span.score--number< #{@score}
+        %span.score--text correct
+    .score--unit.score--unit__total
+        %span.score--number>< #{@rounds}
+        %span.score--text total
+    .score--unit.score--unit__rounds
+        %span.score--number #{@remaining}
+        %span.score--text more tries

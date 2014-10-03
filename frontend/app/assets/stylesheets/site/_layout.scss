@@ -1,8 +1,8 @@
 #container {
     max-width: 480px;
     background-color: rgba($background, 0.8);
-    margin: 4em auto;
-    padding: 2em 1em;
+    margin: 3em auto 5em;
+    padding: 2em;
     position: relative;
     z-index: 1;
 }
@@ -11,13 +11,16 @@ header {
     margin-bottom: 2em;
 }
 
-#main {
+footer {
+    margin-top: 4em;
+    color: $system-gray-dark;
 }
 
-.content {
-    background-color: $system-white;
-    border-radius: 1em;
-    color: $system-black;
+.alert {
+    margin-bottom: 1em;
+}
+
+#main {
 }
 
 %background {
@@ -28,6 +31,8 @@ header {
     right: 0;
     z-index: 0;
     transform: skewX(-45deg) scale(1.5);
+    background-repeat: repeat;
+    background-size: 100% 50%;
 }
 
 .background_1 {

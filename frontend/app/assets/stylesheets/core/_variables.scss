@@ -47,7 +47,7 @@ $experimental-support-for-opera: $adb-support-opera;
 $experimental-support-for-microsoft: $adb-support-ie;
 $experimental-support-for-khtml: $adb-support-khtml;
 
-$body-type-family: "jaf-facitweb",sans-serif;
+$body-type-family: "jaf-facitweb", sans-serif;
 $title-type-family: "jubilat",sans-serif;
 $baseline: 16px;
 
@@ -59,12 +59,16 @@ $maroon: #4B1248;
 $purple: #1D0B38;
 
 $background: $purple;
-$system-black: #16161D;
-$system-buttons: $pink;
+$system-black: $purple;
 $system-gray-dark: #555555;
 $system-gray-medium: #AAAAAA;
 $system-gray-light: #DDDDDD;
-$system-red: #df1378;
 $system-white: #FFFFFF;
 
-$color-title-large: $gold;
+$color-title: $gold;
+
+%number {
+    font-size: 2em;
+    font-family: $title-type-family;
+    font-weight: 600;
+}

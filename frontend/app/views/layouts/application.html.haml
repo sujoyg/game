@@ -1,10 +1,10 @@
 - content_for :content do
     = render partial: 'layouts/header'
     - flash.each do |name, message|
-        %div{class: "alert-#{name}"}
+        %div{class: "#{name}"}
             = message
 
-    #main{ :role => "main" }
+    #main.clearfix{ :role => "main" }
         = yield
 
     = render partial: 'layouts/footer'

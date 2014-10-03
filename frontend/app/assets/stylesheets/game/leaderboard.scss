@@ -1,17 +1,94 @@
-.record {
-  display: table-row;
-  overflow: hidden;
-  clear: both;
+@import "../core/variables";
+@import "../core/mixins";
+
+#container {
+    background-color: transparent;
 }
 
-.name {
-  font-size: x-large;
-  display: table-cell;
-  padding: 10px;
+.leaderboard {
+    display: table;
+    width: 100%;
+    border-spacing: 0.2em;
+    li {
+        display: table-row;
+        background-color: rgba($purple, 0.4);
+    }
 }
 
-.score {
-  font-size: x-large;
-  display: table-cell;
-  padding: 10px;
+%leaderboard--cell {
+    display: table-cell;
+    padding: 0.5em 1em;
+    vertical-align: middle;
+}
+
+.leaderboard--name {
+    @extend %leaderboard--cell;
+    text-align: left;
+    background-color: rgba($purple, 0.4);
+}
+
+.leaderboard--score {
+    @extend %leaderboard--cell;
+    @extend %number;
+    width: 4em;
+}
+
+
+
+@-webkit-keyframes leaderboard {
+    0% {
+        background-position: left top;
+    }
+    100% {
+        background-position: left bottom;
+    }
+}
+@-moz-keyframes leaderboard {
+    0% {
+        background-position: left top;
+    }
+    100% {
+        background-position: left bottom;
+    }
+}
+@-ms-keyframes leaderboard {
+    0% {
+        background-position: left top;
+    }
+    100% {
+        background-position: left bottom;
+    }
+}
+@keyframes leaderboard {
+    0% {
+        background-position: left top;
+    }
+    100% {
+        background-position: left bottom;
+    }
+}
+
+%background__loading {
+    @include _animation(leaderboard, $duration:2s, $function:linear, $iteration:infinite);
+}
+
+#leaderboard {
+    @extend %background__loading;
+    background-image: -webkit-linear-gradient(top, $gold, $orange, $gold);
+    .background_1 {
+        @extend %background__loading;
+        background-image: -webkit-linear-gradient(top, $orange, $pink, $orange);
+    }
+    .background_2 {
+        @extend %background__loading;
+        background-image: -webkit-linear-gradient(top, $orange, $pink, $orange);
+    }
+    .background_3 {
+        @extend %background__loading;
+        background-image: -webkit-linear-gradient(top, $pink, $maroon, $pink);
+    }
+    .background_4 {
+        @extend %background__loading;
+        background-image: -webkit-linear-gradient(top, $maroon, $purple, $maroon);
+    }
 }
