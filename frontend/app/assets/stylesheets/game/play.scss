@@ -9,7 +9,6 @@
 
 .card {
     background-color: $system-white;
-    box-shadow: 0 0 0 0.5em $maroon;
     padding: 1em;
     height: 410px;
 }
@@ -86,12 +85,9 @@
 
 .score--unit {
     display: inline-block;
+    margin-top: 1em;
     margin-left: 1em;
-    margin-top: 2em;
     min-width: 5em;
-    &:first-child {
-        margin-top: 0;
-    }
 }
 
 @media only screen and (min-width: 480px) {
@@ -105,12 +101,15 @@
     .score {
         float: right;
         width: 20%;
-        min-width: 6em;
     }
 
     .score--unit {
         display: block;
+        margin-left: 0;
         min-width: 0;
+        &:first-child {
+            margin-top: 0;
+        }
     }
 
 }
@@ -125,6 +124,9 @@
 
 .score--unit__rounds {
     background-color: $maroon;
+    .score--text {
+        background-color: rgba($system-white, 0.1);
+    }
 }
 
 .score--number {
