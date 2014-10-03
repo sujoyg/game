@@ -1,7 +1,7 @@
 - set_css 'game/play'
 - set_javascript 'game/play'
 
-= form_tag game_check_path, :class => "game flip", :data => {"next" => game_next_path, "finish" => game_leaderboard_path, "state" => game_state_path} do
+= form_tag game_check_path, :class => "game flip", :data => { "next" => game_next_path, "finish" => game_leaderboard_path, "state" => game_state_path } do
     .flipper{class: @remaining == 0 ? "flipped" : ""}
         .face.front
             .card.card__initial.clearfix
@@ -10,9 +10,13 @@
                 %fieldset.card--content
                     .field
                         = search_field_tag 'guess', '', :placeholder => "e.g., Johnny Apple"
-                %menu.form--submit
+                %menu.form--submit.clearfix
                     = button_tag 'Enter', :type => "submit", :id => "button_enter"
                     = button_tag 'Skip', :type => "button", :id => "button_skip"
+                %menu.form--submit.clearfix.hidden
+                    = button_tag 'Next', :type => "submit", :class => "button_next"
+                %menu.form--submit.clearfix.hidden
+                    = button_tag 'Finish', :type => "submit", :class => 'button_finish'
         .face.back
             .card.card__result
                 .card--content
@@ -32,14 +36,14 @@
                         %br
                         Location
                     %p
-                        Say hey
+                        %strong Say hey
                         %br
                         %a.email{ :href => "mailto:email@address.com" }
                             email@address.com
-                %menu.form--submit
-                    = button_tag 'Next', :type => "submit", :id => "button_next"
-                %menu.finish
-                    = button_tag 'Finish', id: 'button_finish'
+                %menu.form--submit.clearfix
+                    = button_tag 'Next', :type => "submit", :class => "button_next"
+                %menu.form--submit.clearfix.hidden
+                    = button_tag 'Finish', :type => "submit", :class => 'button_finish'
 .score
     .score--unit.score--unit__correct
         %span.score--number< #{@score}

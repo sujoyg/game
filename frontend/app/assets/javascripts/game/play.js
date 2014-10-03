@@ -15,8 +15,8 @@ function render(state) {
   }
 
   if (state["remaining"] == 0) {
-    $("#button_next").hide();
-    $("#button_finish").show();
+    $(".button_next").parent().addClass('hidden');
+    $(".button_finish").parent().removeClass('hidden');
   }
 
   $(".game .card--image img").attr("src", state["image"]);
@@ -53,9 +53,10 @@ $(function () {
     open: function (event, ui) {
       $(".ui-autocomplete").css("z-index", 1000);
     }
-  });
+});
 
-  $("#button_next").click(function (e) {
+
+  $(".button_next").click(function (e) {
     e.preventDefault();
     $.getJSON($("form.game").data("next")).done(function (state) {
       render(state);
@@ -72,7 +73,7 @@ $(function () {
     });
   });
 
-  $("#button_finish").click(function (e) {
+  $(".button_finish").click(function (e) {
     e.preventDefault();
     location.href = $(".game").data("finish");
   });
